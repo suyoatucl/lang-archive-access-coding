@@ -1,0 +1,40 @@
+archive,field,item,state,first_source,genre
+AILLA,Decision-maker,DM1,answered,AILLA-07,deposit document
+AILLA,Decision-maker,DM2,answered,AILLA-06,terms or policy
+AILLA,Decision-maker,DM3,answered,AILLA-06,terms or policy
+AILLA,Decision-maker,DM4,answered,AILLA-07,deposit document
+AILLA,Grounds,GR1,answered,AILLA-07,deposit document
+AILLA,Grounds,GR2,answered,AILLA-07,deposit document
+AILLA,Levels,LV1,answered,AILLA-07,deposit document
+AILLA,Levels,LV2,answered,AILLA-07,deposit document
+AILLA,Review,RV1,answered,AILLA-07,deposit document
+AILLA,Review,RV2,deferred,AILLA-05,
+AILLA,Review,RV3,not stated,,
+AILLA,Review,RV4,not stated,,
+AILLA,Review,RV5,answered,AILLA-07,deposit document
+ELAR,Decision-maker,DM1,answered,ELAR-01,help or information page
+ELAR,Decision-maker,DM2,answered,ELAR-02,terms or policy
+ELAR,Decision-maker,DM3,deferred,ELAR-01,
+ELAR,Decision-maker,DM4,answered,ELAR-01,help or information page
+ELAR,Grounds,GR1,answered,ELAR-02,terms or policy
+ELAR,Grounds,GR2,answered,ELAR-04,terms or policy
+ELAR,Levels,LV1,answered,ELAR-01,help or information page
+ELAR,Levels,LV2,answered,ELAR-01,help or information page
+ELAR,Review,RV1,deferred,ELAR-01,
+ELAR,Review,RV2,deferred,ELAR-01,
+ELAR,Review,RV3,not stated,,
+ELAR,Review,RV4,answered,ELAR-02,terms or policy
+ELAR,Review,RV5,deferred,ELAR-01,
+PARADISEC,Decision-maker,DM1,answered,PARADISEC-02,deposit document
+PARADISEC,Decision-maker,DM2,answered,PARADISEC-05,help or information page
+PARADISEC,Decision-maker,DM3,answered,PARADISEC-02,deposit document
+PARADISEC,Decision-maker,DM4,answered,PARADISEC-02,deposit document
+PARADISEC,Grounds,GR1,answered,PARADISEC-02,deposit document
+PARADISEC,Grounds,GR2,answered,PARADISEC-02,deposit document
+PARADISEC,Levels,LV1,answered,PARADISEC-02,deposit document
+PARADISEC,Levels,LV2,answered,PARADISEC-02,deposit document
+PARADISEC,Review,RV1,answered,PARADISEC-02,deposit document
+PARADISEC,Review,RV2,deferred,PARADISEC-01,
+PARADISEC,Review,RV3,not stated,,
+PARADISEC,Review,RV4,answered,PARADISEC-10,help or information page
+PARADISEC,Review,RV5,answered,PARADISEC-02,deposit document

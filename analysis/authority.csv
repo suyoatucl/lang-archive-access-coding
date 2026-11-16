@@ -1,0 +1,26 @@
+archive,item,party,basis
+AILLA,DM1,depositor,stated
+AILLA,DM1,archive,fallback
+AILLA,DM1,steward or controller,stated
+AILLA,DM2,archive,fallback
+AILLA,DM2,steward or controller,stated
+AILLA,DM3,archive,fallback
+AILLA,DM3,steward or controller,stated
+AILLA,DM4,depositor,stated
+AILLA,DM4,speaker or community,stated
+AILLA,DM4,archive,fallback
+AILLA,DM4,steward or controller,stated
+ELAR,DM1,depositor,stated
+ELAR,DM1,archive,stated
+ELAR,DM2,archive,stated
+ELAR,DM4,speaker or community,stated
+ELAR,DM4,steward or controller,stated
+PARADISEC,DM1,depositor,stated
+PARADISEC,DM1,archive,stated
+PARADISEC,DM2,depositor,stated
+PARADISEC,DM2,archive,stated
+PARADISEC,DM3,depositor,stated
+PARADISEC,DM3,archive,stated
+PARADISEC,DM4,depositor,stated
+PARADISEC,DM4,archive,stated
+PARADISEC,DM4,steward or controller,stated

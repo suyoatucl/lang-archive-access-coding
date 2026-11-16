@@ -1,0 +1,14 @@
+field,item,AILLA,ELAR,PARADISEC
+Decision-maker,DM1,depositor; archive; steward or controller,depositor; archive,depositor; archive
+Decision-maker,DM2,archive; steward or controller,archive,depositor; archive
+Decision-maker,DM3,archive; steward or controller,deferred,depositor; archive
+Decision-maker,DM4,depositor; speaker or community; archive; steward or controller,speaker or community; steward or controller,depositor; archive; steward or controller
+Grounds,GR1,free text,free text,free text
+Grounds,GR2,named,named,named
+Levels,LV1,4,3,2
+Levels,LV2,named,named,named
+Review,RV1,stated,deferred,stated
+Review,RV2,deferred,deferred,deferred
+Review,RV3,not stated,not stated,not stated
+Review,RV4,not stated,stated,stated
+Review,RV5,stated,deferred,stated

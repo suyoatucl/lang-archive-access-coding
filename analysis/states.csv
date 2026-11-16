@@ -1,0 +1,14 @@
+field,item,AILLA,ELAR,PARADISEC
+Decision-maker,DM1,answered,answered,answered
+Decision-maker,DM2,answered,answered,answered
+Decision-maker,DM3,answered,deferred,answered
+Decision-maker,DM4,answered,answered,answered
+Grounds,GR1,answered,answered,answered
+Grounds,GR2,answered,answered,answered
+Levels,LV1,answered,answered,answered
+Levels,LV2,answered,answered,answered
+Review,RV1,answered,deferred,answered
+Review,RV2,deferred,deferred,deferred
+Review,RV3,not stated,not stated,not stated
+Review,RV4,not stated,answered,answered
+Review,RV5,answered,deferred,answered
