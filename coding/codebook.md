@@ -1,6 +1,6 @@
 # Codebook
 
-**Status:** version 0.6, 16 November 2026. Both coders coded with version 0.5. Version 0.6 adds what the resolution of their differences settled (rules 5, 22 and 23). Section 8 records the decisions taken.
+**Status:** version 0.6.1, 20 November 2026. Both coders coded with version 0.5. Version 0.6 adds what the resolution of their differences settled (rules 5, 22 and 23). Version 0.6.1 adds the second author's check of each resolution (6.2, 7) and changes no item, code or rule. Section 8 records the decisions taken.
 
 ## 1. What is coded
 
@@ -158,6 +158,9 @@ One row for each archive and item where the two coders differ in `code`.
 | `final_code` | The agreed code |
 | `resolved_on` | Date |
 | `codebook_change` | Any change made to this codebook as a result, or `none` |
+| `checked_by`, `checked_on` | Who checked the resolution against the documents, and the date. The second author checks each resolution |
+| `check_result` | `agree`, `disagree` or `unsure` |
+| `check_note` | The checker's comment, and what was done about a disagreement |
 
 ### 6.3 `final.csv`
 
@@ -176,10 +179,11 @@ The wording of the rows whose text changed at resolution: rows where the final c
 3. **Human coding.** The first author reads every `found` document for the archive in full and fills `pass_human.csv` without opening the AI coder's sheet.
 4. **Comparison.** A script compares the two sheets item by item and lists the differences in `differences.csv`. Two codes agree when they hold the same set of codes, in any order.
 5. **Resolution.** The first author resolves each difference against the documents and records the reason. The AI coder's sheet is evidence to weigh. It does not decide.
-6. **Final sheet.** The agreed coding goes to `final.csv`.
-7. **Codebook changes.** If a difference shows that a rule is unclear, the first author changes the rule, records the change in section 9, and checks earlier codes that the rule affects.
+6. **Check of resolutions.** The second author checks each resolution against the documents, with a sheet that `scripts/build_check_sheet.py` builds from the coding sheets, and the answer goes to the check columns of `differences.csv`. A disagreement is discussed. If the code changes, `resolution` and `final_code` record the change, and the tables and figures are built again.
+7. **Final sheet.** The agreed coding goes to `final.csv`.
+8. **Codebook changes.** If a difference shows that a rule is unclear, the first author changes the rule, records the change in section 9, and checks earlier codes that the rule affects.
 
-**What is reported.** The number of items on which the two coders agreed, out of 39, and every difference with its resolution. No coefficient such as kappa is reported: 39 decisions are too few for one to mean much.
+**What is reported.** The number of items on which the two coders agreed, out of 39, every difference with its resolution, and the second author's check of each resolution. No coefficient such as kappa is reported: 39 decisions are too few for one to mean much.
 
 **Limits.** The AI coder is not an independent human coder. An AI assistant drafted this codebook and located the documents, so the two coders share more than two human coders would.
 
@@ -210,3 +214,4 @@ The wording of the rows whose text changed at resolution: rows where the final c
 | 2026-11-15 | 0.4 | Replaced two passes by one coder with one pass each by two coders, the first author and an AI agent (sections 1, 6 and 7, rule 1) |
 | 2026-11-15 | 0.5 | After the pilot: clarified the definitions of `depositor` and `steward or controller` (3.1), rules 4, 5, 6, 8, 9, 10, 12 and 19, added rule 20 (the archive's own power) and rule 21 (general deferral), added five examples, and said what stays empty for `not stated` (6.1) |
 | 2026-11-16 | 0.6 | At resolution: one sentence added to rule 5; added rule 22 (a party that steps in) and rule 23 (conditions of use); added `resolved_text.csv` (6.4). Checked the codes these rules affect: the paraphrases of GR2 for AILLA and PARADISEC were extended under rule 23 with no change of code; no other code changed |
+| 2026-11-20 | 0.6.1 | Added the second author's check of each resolution: four columns in `differences.csv` (6.2) and step 6 of the procedure (7). No item, code or rule changed |

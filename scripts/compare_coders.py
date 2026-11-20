@@ -17,7 +17,8 @@ HUMAN = ROOT / "coding" / "pass_human.csv"
 AI = ROOT / "coding" / "sealed" / "pass_ai.csv"
 DIFF = ROOT / "coding" / "differences.csv"
 DIFF_COLS = ["archive", "item", "human_code", "ai_code", "cause", "resolution",
-             "final_code", "resolved_on", "codebook_change"]
+             "final_code", "resolved_on", "codebook_change",
+             "checked_by", "checked_on", "check_result", "check_note"]
 
 
 def code_set(text):
@@ -60,7 +61,9 @@ def main():
                 if key not in known:
                     new_rows.append({"archive": key[0], "item": key[1], "human_code": h, "ai_code": a,
                                      "cause": "", "resolution": "", "final_code": "",
-                                     "resolved_on": "", "codebook_change": ""})
+                                     "resolved_on": "", "codebook_change": "",
+                                     "checked_by": "", "checked_on": "", "check_result": "",
+                                     "check_note": ""})
         print(f"{archive}: the coders agree on {agreed} of {len(keys)} items")
 
     if new_rows:

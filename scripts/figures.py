@@ -66,6 +66,7 @@ plt.rcParams.update({
     "figure.facecolor": SURFACE,
     "savefig.facecolor": SURFACE,
     "svg.fonttype": "none",
+    "svg.hashsalt": "delaman-access-coding",
 })
 
 
@@ -75,8 +76,11 @@ def read(name):
 
 
 def save(fig, stem):
+    # No creation dates in the files, so that the same data give the same files.
+    metadata = {"png": {}, "svg": {"Date": None}, "pdf": {"CreationDate": None}}
     for ext in ("png", "svg", "pdf"):
-        fig.savefig(OUT / f"{stem}.{ext}", dpi=300, bbox_inches="tight", pad_inches=0.08)
+        fig.savefig(OUT / f"{stem}.{ext}", dpi=300, bbox_inches="tight", pad_inches=0.08,
+                    metadata=metadata[ext])
     plt.close(fig)
 
 
@@ -136,8 +140,9 @@ def figure2():
     authority = read("authority.csv")
     states = {(r["item"], a): r[a] for r in read("states.csv") for a in ARCHIVES}
     items = ["DM1", "DM2", "DM3", "DM4"]
-    fig, axes = plt.subplots(1, 3, figsize=(6.3, 2.35), sharey=True,
-                             gridspec_kw={"wspace": 0.08, "left": 0.24, "right": 0.995, "top": 0.74, "bottom": 0.2})
+    # Space and a vertical rule between the panels keep the three archives apart.
+    fig, axes = plt.subplots(1, 3, figsize=(6.3, 2.5), sharey=True,
+                             gridspec_kw={"wspace": 0.26, "left": 0.235, "right": 0.995, "top": 0.70, "bottom": 0.2})
     for ax, archive in zip(axes, ARCHIVES):
         ax.set_xlim(-0.5, 3.5)
         ax.set_ylim(3.5, -0.5)
@@ -152,7 +157,7 @@ def figure2():
         ax.set_yticklabels(PARTIES, color=INK2, fontsize=8)
         for y in range(4):
             ax.plot([-0.5, 3.5], [y, y], color=GRID, linewidth=0.8, zorder=0)
-        ax.set_title(archive, color=INK, fontsize=8.5, fontweight="bold", pad=17)
+        ax.set_title(archive, color=INK, fontsize=8.5, fontweight="bold", pad=19)
         for x, item in enumerate(items):
             if states[(item, archive)] != "answered":
                 ax.add_patch(Rectangle((x - 0.36, -0.42), 0.72, 3.84, facecolor=NEUTRAL, edgecolor="none", zorder=1))
@@ -167,6 +172,10 @@ def figure2():
             else:
                 ax.plot(x, y, marker="o", markersize=8.5, markerfacecolor=BLUE, markeredgecolor=SURFACE,
                         markeredgewidth=1.2, linestyle="none", zorder=3)
+    fig.canvas.draw()
+    for left, right in zip(axes[:-1], axes[1:]):
+        x = (left.get_position().x1 + right.get_position().x0) / 2
+        fig.add_artist(Line2D([x, x], [0.17, 0.97], transform=fig.transFigure, color=MUTED, linewidth=0.9))
     handles = [
         Line2D([], [], marker="o", markersize=7, markerfacecolor=BLUE, markeredgecolor=SURFACE, linestyle="none",
                label="named as deciding"),

@@ -1,4 +1,4 @@
-"""Build the two tables in analysis/ from the final coding and the source register.
+"""Build the tables in analysis/ from the final coding and the source register.
 
 Usage:
     python3 scripts/build_tables.py
@@ -13,6 +13,11 @@ Outputs:
                                marked `stated` or `fallback`
     analysis/provenance.csv    for each item and archive, the kind of document that
                                carries the quotation behind the final code
+    analysis/parties_by_act.csv for each Decision-maker item (act) and party, whether
+                               each archive names that party: `stated`, `fallback`,
+                               the silence code of the item, or empty; and the number
+                               of archives that name the party, with and without
+                               `fallback`
 
 A party is marked `fallback` when the note of the row says so and the party is the
 archive (codebook rule 22). The kinds of document come from analysis/source_genres.csv,
@@ -29,6 +34,7 @@ PARTIES = ["depositor", "speaker or community", "archive", "steward or controlle
 FALLBACK_PARTY = "archive"
 TYPES = ["access policy", "deposit agreement or form", "terms of use", "help or FAQ", "takedown or withdrawal"]
 SILENCE = {"deferred", "not public", "not stated"}
+ACTS = {"DM1": "set", "DM2": "change", "DM3": "lift", "DM4": "decide on requests"}
 
 
 def read(path):
@@ -83,6 +89,20 @@ def main():
                 authority.append([row["archive"], row["item"], party, "fallback" if fallback else "stated"])
     write("analysis/authority.csv", ["archive", "item", "party", "basis"], authority)
 
+    basis = {(archive, item, party): b for archive, item, party, b in authority}
+    by_act = []
+    for item, act in ACTS.items():
+        for party in PARTIES:
+            line = [item, act, party]
+            for archive in ARCHIVES:
+                code = cell[(archive, item)]["code"]
+                line.append(code if code in SILENCE else basis.get((archive, item, party), ""))
+            named = [value for value in line[3:] if value in ("stated", "fallback")]
+            line += [len(named), named.count("stated")]
+            by_act.append(line)
+    write("analysis/parties_by_act.csv",
+          ["item", "act", "party"] + ARCHIVES + ["archives_naming", "archives_naming_not_fallback"], by_act)
+
     genres = read("analysis/source_genres.csv")
     provenance = []
     for row in final:
@@ -99,7 +119,8 @@ def main():
                 raise SystemExit(f"no kind of document for {first} ({row['archive']} {row['item']})")
         provenance.append([row["archive"], row["field"], row["item"], state, first, genre])
     write("analysis/provenance.csv", ["archive", "field", "item", "state", "first_source", "genre"], provenance)
-    print("wrote matrix.csv, states.csv, availability.csv, authority.csv and provenance.csv in analysis/")
+    print("wrote matrix.csv, states.csv, availability.csv, authority.csv, provenance.csv "
+          "and parties_by_act.csv in analysis/")
 
 
 if __name__ == "__main__":
