@@ -1,0 +1,22 @@
+{
+  "title": "Who Decides on Access? Source List, Codebook, Coding and Scripts",
+  "upload_type": "dataset",
+  "version": "1.0.0",
+  "language": "eng",
+  "access_right": "open",
+  "license": "cc-by-4.0",
+  "creators": [
+    {"name": "Quan, Siyang", "affiliation": "King's College London", "orcid": "REPLACE-WITH-SIYANG-QUAN-ORCID"},
+    {"name": "Spence, Paul", "affiliation": "King's College London", "orcid": "REPLACE-WITH-PAUL-SPENCE-ORCID"}
+  ],
+  "keywords": [
+    "endangered-language archives",
+    "access restrictions",
+    "data governance",
+    "document analysis",
+    "research infrastructure",
+    "DELAMAN",
+    "digital humanities"
+  ],
+  "description": "<p>This record accompanies the DH2027 poster proposal <em>Who Decides on Access? Restriction, Grounds and Review in Digital Endangered-Language Archives</em> (Siyang Quan and Paul Spence, King's College London). The study compares what three members of DELAMAN, the Digital Endangered Languages and Musics Archives Network, state in public about access restrictions: the Archive of the Indigenous Languages of Latin America (AILLA), the Endangered Languages Archive (ELAR) and the Pacific and Regional Archive for Digital Sources in Endangered Cultures (PARADISEC). It asks who can set, change or lift a restriction and decide on requests for access, on what grounds, and whether decisions can be reviewed.</p><p>Two coders, the first author and an AI agent given only the codebook and the documents, coded each archive separately. The record holds:</p><ul><li><strong>sources/</strong>: the register of the public documents (24 read in November 2026), the inclusion criteria and a dated log of the collection;</li><li><strong>coding/</strong>: the codebook (13 items in four fields), both codings, the AI coder's instructions, the six differences with their resolution, and the final codes;</li><li><strong>analysis/</strong>: the tables and figures built from the final codes;</li><li><strong>scripts/</strong>: Python scripts that compare the codings and rebuild the final codes, tables, figures and references.</li></ul><p>The record holds no copies of the archives' documents, only titles, addresses and short quotations, and no personal data. ELAR's web addresses are withheld until ELAR consents to links to its website. Data and documentation are under CC BY 4.0; the scripts are under the MIT licence (see LICENSE.md).</p>"
+}
