@@ -6,8 +6,8 @@
   "access_right": "open",
   "license": "cc-by-4.0",
   "creators": [
-    {"name": "Quan, Siyang", "affiliation": "King's College London", "orcid": "REPLACE-WITH-SIYANG-QUAN-ORCID"},
-    {"name": "Spence, Paul", "affiliation": "King's College London", "orcid": "REPLACE-WITH-PAUL-SPENCE-ORCID"}
+    {"name": "Quan, Siyang", "affiliation": "King's College London", "orcid": "0000-0003-1018-423X"},
+    {"name": "Spence, Paul", "affiliation": "King's College London", "orcid": "0000-0001-9236-2727"}
   ],
   "keywords": [
     "endangered-language archives",
