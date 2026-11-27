@@ -1,8 +1,6 @@
 # lang-archive-access-coding
 
-Source list and coding sheets for the DH2027 poster proposal *Who Decides on Access? Restriction, Grounds and Review in Digital Endangered-Language Archives* (Siyang Quan and Paul Spence, King's College London).
-
-**Status:** coding finished on 16 November 2026. The two coders agreed on 33 of 39 items. The first author resolved the other six. The tables and figures are built.
+Source list and coding sheets for the DH2027 poster proposal *Who Decides on Access? Restriction, Grounds and Review in Digital Endangered-Language Archives* (Siyang Quan, Paul Spence and Rebecca Lurie Starr; King's College London and National University of Singapore).
 
 ## Purpose
 
@@ -38,8 +36,8 @@ Documents that each archive publishes for users and depositors without a login: 
 1. **Collect.** List every document in `sources/sources.csv` with its URL and access date, and a web-archive snapshot where the site's terms allow one. `sources/README.md` gives the steps.
 2. **Code twice, independently.** Two coders answer the same 13 items for each archive, following `coding/codebook.md`. One is the first author (SQ), whose sheet is `coding/pass_human.csv`. The other is an AI agent that receives only the codebook and the full text of the documents. Its sheet is `coding/sealed/pass_ai.csv` and its instructions are in `coding/ai_coder_prompt.md`. Neither coder sees the other's codes.
 3. **Compare.** `scripts/compare_coders.py` compares the two sheets item by item and lists the differences in `coding/differences.csv`.
-4. **Resolve.** The first author resolves each difference against the documents and records the reason. The agreed codes go in `coding/final.csv`.
-5. **Report.** Build the two tables and the figure in `analysis/`.
+4. **Resolve.** The first author resolves each difference against the documents and records the reason. The second author checks each resolution against the documents, and the check is recorded in `coding/differences.csv`. The agreed codes go in `coding/final.csv`.
+5. **Report.** Build the tables, figures and references in `analysis/`.
 
 `coding/evidence.csv` holds passages located during collection. It is a reading aid for the human coder. It holds no codes, and the AI coder does not receive it.
 
@@ -55,14 +53,14 @@ sources/
   README.md             collection steps and column definitions
   sources.csv           one row per document
   inclusion.csv         inclusion criteria, checked per archive
-  collection_log.md     dated record of collection, blocks and exceptions
+  citations.csv         what the references to the documents need: author, date, title
 coding/
   codebook.md           fields, items, codes and decision rules
   ai_coder_prompt.md    instructions given to the AI coder
   evidence.csv          located passages (no codes)
   pass_human.csv        the first author's coding
   sealed/               the AI coder's coding, its report and the check of its quotations
-  differences.csv       differences between the coders and their resolution
+  differences.csv       differences between the coders, their resolution and its check
   resolved_text.csv     wording of the rows whose text changed at resolution
   final.csv             agreed codes
   human_coder_report.md the first author's notes on the coding
@@ -72,6 +70,11 @@ scripts/
   build_tables.py       builds the tables in analysis/
   figures.py            draws the figures in analysis/
   check_quotes.py       checks quotations against the documents
+  build_references.py   builds APA references to the documents
+  build_check_sheet.py  builds the sheet for checking the resolutions
+  count_abstract_words.py  counts the words of the abstract (.md or .docx) as the DH2027 call does
+  build_abstract.py     builds the Word and PDF versions of the abstract
+  make_docx_template.py makes abstract-template.docx (A4, bordered tables)
 analysis/
   README.md             what each table holds
   matrix.csv            items by archives, final codes
@@ -80,10 +83,13 @@ analysis/
   authority.csv         parties named in the Decision-maker items
   provenance.csv        kind of document behind each answer
   source_genres.csv     kinds of document, assigned by hand
+  parties_by_act.csv    parties named for each act, by archive
+  references_archives.md  APA references to the documents
+  citation_keys.csv     in-text citation of each document
+  documents_by_type.csv document types by archives, with citations
   figure1_states.*      figure 1
   figure2_authority.*   figure 2
   figure3_provenance.*  figure 3
-notes/                  private working notes, not for release
 ```
 
 ## How to check the coding
@@ -97,12 +103,13 @@ notes/                  private working notes, not for release
 
 - Copies of the archives' documents. It holds links, snapshot links and short quotations.
 - Personal data such as staff names, email addresses or telephone numbers. Quotations omit them.
-- Information from archive staff or communities. Nobody was contacted.
+- Information from archive staff or communities. The study involved no human participants.
+- ELAR's web addresses in the references. ELAR's terms ask for written consent before others link to its website, so `analysis/references_archives.md` leaves them out until ELAR consents. The public release will do the same.
 - Information about individual collections or their restrictions.
 
 ## Use of generative AI
 
-Generative AI was used in this work. One AI assistant (DeepSeek-V4-Pro, an open-source model running locally via Ollama) helped to draft the codebook `coding/codebook.md` and to check quotations. Another AI agent of the same model acted as second coder: it received only the codebook and the full text of the documents, and it coded each archive once. The first author read every document, coded every archive independently, and decided every difference between the two coding results. The authors revised the text and are responsible for the content.
+Generative AI was used in this work. One AI assistant (DeepSeek-V4-Pro, an open-source model running locally via Ollama) helped to draft the codebook and to check quotations. Another AI agent of the same model acted as second coder: it received only the codebook and the full text of the documents, and it coded each archive once. The first author read every document, coded every archive independently, and decided every difference between the two coding results, whilst the second author checked each decision against the documents. The text of the abstract was written and revised by the authors, who are responsible for its content.
 
 ## Licence
 

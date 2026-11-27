@@ -1,0 +1,17 @@
+item,act,party,AILLA,ELAR,PARADISEC,archives_naming,archives_naming_not_fallback
+DM1,set,depositor,stated,stated,stated,3,3
+DM1,set,speaker or community,,,,0,0
+DM1,set,archive,fallback,stated,stated,3,2
+DM1,set,steward or controller,stated,,,1,1
+DM2,change,depositor,,,stated,1,1
+DM2,change,speaker or community,,,,0,0
+DM2,change,archive,fallback,stated,stated,3,2
+DM2,change,steward or controller,stated,,,1,1
+DM3,lift,depositor,,deferred,stated,1,1
+DM3,lift,speaker or community,,deferred,,0,0
+DM3,lift,archive,fallback,deferred,stated,2,1
+DM3,lift,steward or controller,stated,deferred,,1,1
+DM4,decide on requests,depositor,stated,,stated,2,2
+DM4,decide on requests,speaker or community,stated,stated,,2,2
+DM4,decide on requests,archive,fallback,,stated,2,1
+DM4,decide on requests,steward or controller,stated,stated,stated,3,3
